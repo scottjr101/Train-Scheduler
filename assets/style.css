@@ -1,0 +1,17 @@
+body {
+    background: url(images/HP_train_bg.jpg);
+    background-attachment: fixed;
+}
+@font-face {
+    font-family: 'HP Serif';
+    src: url('fonts/HP_Serif.ttf');
+}
+h1 {
+    font-family: 'HP Serif', serif;
+    color: #BC4646;
+}
+.jumbotron, .card {
+    background-color: rgba(249, 228, 169, 0.75);
+    border: solid #707070 1px;
+    border-radius: 10px;
+}

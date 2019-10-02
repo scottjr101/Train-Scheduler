@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4 text-center">Hogwarts Express</h1>
+                <p class="lead text-center">This is a modified jumbotron that occupies the entire horizontal space of its parent.
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5>Current Train Schedule</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h5>Add Train</h5>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="employee-name-input">Employee Name</label>
+                        <input class="form-control" id="employee-name-input" placeholder="Jane Doe" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="role-input">Role</label>
+                        <input class="form-control" id="role-input" placeholder="CEO" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="start-input">Start Date (MM/DD/YYYY)</label>
+                        <input class="form-control" id="start-input" placeholder="01/08/1989" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="rate-input">Monthly Rate</label>
+                        <input class="form-control" id="rate-input" placeholder="200000" type="text">
+                    </div>
+                    <button class="btn btn-primary float-left" id="add-employee-btn">Submit</button>
+                </form>
+            </div>
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>
