@@ -17,7 +17,7 @@
         <br>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4 text-center">Hogwarts Express</h1>
+                <h1 class="display-2 text-center">Hogwarts Express</h1>
                 <p class="lead text-center">Add a train below to the train schedule.
                 </p>
             </div>
@@ -30,30 +30,34 @@
                 <table class="table table-borderless table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Train Name</th>
+                            <th scope="col">Destination</th>
+                            <th scope="col">Frenqency (min)</th>
+                            <th scope="col">Next Arrival</th>
+                            <th scope="col">Minutes Aways</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th scope="row">Hogwarts Express</th>
+                            <td>Hogwarts</td>
+                            <td>30</td>
+                            <td>12:00 PM</td>
+                            <td>15</td>
                         </tr>
                         <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
+                            <th scope="row">The Jacobite</th>
+                            <td>Hogwarts</td>
+                            <td>120</td>
+                            <td>03:35 PM</td>
+                            <td>60</td>
                         </tr>
                         <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                            <th scope="row">Muggle Crusher</th>
+                            <td>London</td>
+                            <td>1440</td>
+                            <td>00:00 AM</td>
+                            <td>700</td>
                         </tr>
                     </tbody>
                 </table>
@@ -67,20 +71,21 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
-                        <label for="employee-name-input">Employee Name</label>
-                        <input class="form-control" id="employee-name-input" placeholder="Jane Doe" type="text">
+                        <label for="train-name-input">Train Name</label>
+                        <input class="form-control" id="train-name-input" placeholder="Thomas the Tank Engine"
+                            type="text">
                     </div>
                     <div class="form-group">
-                        <label for="role-input">Role</label>
-                        <input class="form-control" id="role-input" placeholder="CEO" type="text">
+                        <label for="destination-input">Destination</label>
+                        <input class="form-control" id="destination-input" placeholder="Atlanta" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="start-input">Start Date (MM/DD/YYYY)</label>
-                        <input class="form-control" id="start-input" placeholder="01/08/1989" type="text">
+                        <label for="train-time-input">First Train Time (HH:mm Military Time)</label>
+                        <input class="form-control" id="train-time-input" placeholder="10:00 AM" type="text">
                     </div>
                     <div class="form-group">
-                        <label for="rate-input">Monthly Rate</label>
-                        <input class="form-control" id="rate-input" placeholder="200000" type="text">
+                        <label for="frequency-input">Frequency (min)</label>
+                        <input class="form-control" id="frequency-input" placeholder="30" type="text">
                     </div>
                     <button class="btn btn-primary" id="add-employee-btn">Submit</button>
                 </form>
