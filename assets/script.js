@@ -74,7 +74,7 @@ $(document).ready(function(){
          minutesAway: tMinutesTillTrain,
 
      });
-
+    });
      database.ref('Train_Scheduler').on('child_added', function (snap) {
          //Testing
          trainNameData = snap.val().train;
@@ -82,16 +82,16 @@ $(document).ready(function(){
          freqData = snap.val().frenqency;
          arrivalData = snap.val().arrival;
          minutesAwayData = snap.val().minutesAway;
-
-         //Data array
-         var dataArray = [trainNameData, destData, freqData, arrivalData, minutesAwayData];
-         var newTr = $('<tr>');
-         for (var i = 0; i < dataArray.length; i++) {
-             var newTd = $('<td>');
-             newTd.text(dataArray[i]);
-             newTd.appendTo(newTr);
-         }
-         $('.TrainsMatter').append(newTr);
+         
+         // Create the new row
+         var newRow = $("<tr>").append(
+         $("<td>").text(trainNameData),
+         $("<td>").text(destData),
+         $("<td>").text(freqData),
+         $("<td>").text(arrivalData),
+         $("<td>").text(minutesAwayData),
+         );
+         $('.TrainsMatter').append(newRow);
      });
- });
+ 
 });
