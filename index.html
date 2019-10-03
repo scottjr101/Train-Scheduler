@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Hogwarts Train Scheduler</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://bootswatch.com/4/united/bootstrap.min.css">
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <!-- FireBase -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <!-- MomentJs-->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 
 <body>
@@ -29,7 +34,7 @@
             <div class="card-body">
                 <table class="table table-borderless table-hover">
                     <thead>
-                        <tr>
+                        <tr class="rowBottom">
                             <th scope="col">Train Name</th>
                             <th scope="col">Destination</th>
                             <th scope="col">Frenqency (min)</th>
@@ -37,28 +42,8 @@
                             <th scope="col">Minutes Aways</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Hogwarts Express</th>
-                            <td>Hogwarts</td>
-                            <td>30</td>
-                            <td>12:00 PM</td>
-                            <td>15</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">The Jacobite</th>
-                            <td>Hogwarts</td>
-                            <td>120</td>
-                            <td>03:35 PM</td>
-                            <td>60</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Muggle Crusher</th>
-                            <td>London</td>
-                            <td>1440</td>
-                            <td>00:00 AM</td>
-                            <td>700</td>
-                        </tr>
+                    <tbody class="TrainsMatter">
+                       
                     </tbody>
                 </table>
             </div>
@@ -87,12 +72,17 @@
                         <label for="frequency-input">Frequency (min)</label>
                         <input class="form-control" id="frequency-input" placeholder="30" type="text">
                     </div>
-                    <button class="btn btn-primary" id="add-employee-btn">Submit</button>
+                    <button class="btn btn-primary" id="add-train-btn">Submit</button>
                 </form>
             </div>
         </div>
         <br>
     </div>
+    <!-- Jquey -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Javascript -->
+    <script type="text/javascript" src="assets/script.js"></script>
 </body>
 
 </html>
