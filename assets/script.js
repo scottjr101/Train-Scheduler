@@ -16,82 +16,64 @@ $(document).ready(function(){
  // Create a variable to reference the database.
  var database = firebase.database();
 
- // Initial Values
- var train = "";
- var destination = "";
- var trainTime = "";
- var frequency = "";
-
- //Conversion Variable
- var firstTimeConverted = '';
- var diffTime = '';
- var tRemainder;
- var tMinutesTillTrain;
- var nextTrain;
-
- //Data reference
- var trainNameData = '';
- var destData = '';
- var arrivalData = '';
- var freqData = '';
- var minutesAwayData = '';
-
  // Capture Button Click
  $("#add-train-btn").on("click", function (event) {
      event.preventDefault();
 
      // Grabbed values from text boxes
-     train = $("#train-name-input").val().trim();
-     destination = $("#destination-input").val().trim();
-     trainTime = $("#train-time-input").val().trim();
-     frequency = $("#frequency-input").val().trim();
-
-     //Conversion
-
-     //Convert to HH:MM
-     firstTimeConverted = moment(trainTime, "hh:mm").subtract(1, "years");
-     //Converts the firsTimeCover object into string
-
-
-     diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-
-     // Time apart (remainder)
-     tRemainder = diffTime % frequency;
-
-     // Minute Until Train
-     tMinutesTillTrain = frequency - tRemainder;
-
-     // Next Train
-     nextTrain = moment().add(tMinutesTillTrain, "minutes");
-     nextTrainFormat = moment(nextTrain).format('hh:mm');
+     var train = $("#train-name-input").val().trim();
+     var destination = $("#destination-input").val().trim();
+     var trainTime = $("#train-time-input").val().trim();
+     var frequency = $("#frequency-input").val().trim();
 
      // Code for handling the push
      database.ref("Train_Scheduler").push({
          train: train,
          destination: destination,
          frenqency: frequency,
-         arrival: nextTrainFormat,
-         minutesAway: tMinutesTillTrain,
+         startTrain: trainTime,
+        });
 
-     });
+     // Clears all of the text-boxes
+	  $("#train-name-input").val("");
+	  $("#destination-input").val("");
+	  $("#train-time-input").val("");
+	  $("#frequency-input").val("");
+
     });
      database.ref('Train_Scheduler').on('child_added', function (snap) {
          //Testing
-         trainNameData = snap.val().train;
-         destData = snap.val().destination;
-         freqData = snap.val().frenqency;
-         arrivalData = snap.val().arrival;
-         minutesAwayData = snap.val().minutesAway;
+         var trainNameData = snap.val().train;
+         var destData = snap.val().destination;
+         var freqData = snap.val().frenqency;
+         firstTrain = snap.val().startTrain;
          
-         // Create the new row
-         var newRow = $("<tr>").append(
-         $("<td>").text(trainNameData),
-         $("<td>").text(destData),
-         $("<td>").text(freqData),
-         $("<td>").text(arrivalData),
-         $("<td>").text(minutesAwayData),
-         );
-         $('.TrainsMatter').append(newRow);
-     });
+        // Declare variable
+  		var freqData;
+
+  		// Time is to be entered on the entry form
+   		 var firstTime = 0;
+
+	    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+
+	    // Difference between the times
+		var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+
+		// Time apart (remainder)
+	    var tRemainder = diffTime % freqData;
+
+	    // Minute Until Train
+	    var tMinutesTillTrain = freqData - tRemainder;
+
+	    // Next Train
+	    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+
+	    // Add each train's data into the table
+	    $(".TrainsMatter").append("<tr><td>" + trainNameData + "</td><td>" + destData + "</td><td>" + freqData + 
+	    "</td><td>" + moment(nextTrain).format("LT") + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+
+        });
+
+     
  
 });
